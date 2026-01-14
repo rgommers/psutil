@@ -1,13 +1,10 @@
 on: [push, pull_request]
 name: py315-tests
 concurrency:
-  # Cancel build if a new one starts, but don't interrupt all jobs on the first
-  # failure.
-  group: build-${{ github.ref }}
-  cancel-in-progress: true
-jobs:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: false
 
-  # Run tests on Linux, macOS, Windows
+jobs:
   tests:
     name: "${{ matrix.os }}, ${{ matrix.arch }}"
     runs-on: ${{ matrix.os }}
