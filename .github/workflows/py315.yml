@@ -28,6 +28,11 @@ jobs:
         with:
           python-version: '3.15-dev'
 
+      - name: Install pywin32 from source
+        if: runner.os == 'Windows'
+        run: |
+          pip install git+https://github.com/mhammond/pywin32.git
+
       - name: Install psutil including test deps
         run: |
           python -m pip install -e .[test]
