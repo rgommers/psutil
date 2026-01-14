@@ -31,10 +31,8 @@ jobs:
 
       - name: Install psutil including test deps
         run: |
-          python -m pip install .[test]
+          python -m pip install -e .[test]
 
       - name: Run tests
         run: |
-          # Same as in Makefile's `test` target
-          cd tests
           python -m pytest . --ignore=tests/test_memleaks.py

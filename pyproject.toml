@@ -262,5 +262,5 @@ python_files = ["test_*.py"]
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
-  "setuptools @ git+https://github.com/rgommers/setuptools@pyinit-export-fix",
+  "setuptools" # @ git+https://github.com/rgommers/setuptools@pyinit-export-fix",
 ]
